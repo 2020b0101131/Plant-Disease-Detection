@@ -412,14 +412,15 @@ footer {
         background-image: linear-gradient(to bottom right, red, yellow);
     }
     .img {
-        margin-left: 64px;
+        margin-left: 2px;
         border-radius: 25px;
-        width: 38rem;
-        height: 70rem;
+        width: 35rem;
+        height: 39rem;
         top: 280px;
         /* padding: 2rem; */
-        margin-top: 3rem;
+        margin-top: -10.5rem;
     }
+   
     button {
         border: none;
         width: 77%;
