@@ -1,15 +1,15 @@
 {% extends 'layout.html' %} {% block body %}
 
 <div class="container">
-    <img src="../static/dark_leaf.jpg" id="right" />
+    <img src="../static/back.jpeg" id="right" />
 </div>
-<div class="container">
+<!-- <div class="container">
     <img src="../static/dark_leaf.jpg" id="left" alt="img not display" />
-</div>
+</div> -->
 <div class="heading">PREDICTING THE RESULTS...</div>
-<div class="text">
-    <div class="text1">
-        <h1 id="dis_name">
+<div class="text" >
+    <div class="text2">
+        <!-- <h1 id="dis_name">
             Disease Detected : {{ app_data['disease_name'].replace('_', ' ').title() }}
         </h1>
         {% if "healthy" in app_data['disease_name'] %}
@@ -18,7 +18,36 @@
         <h3 id="treatment">Treatment: {{ app_data['supplement name'] }}</h3>
         <a href="{{ app_data['buy link'] }}">
             <img src="{{ app_data['supplement image'] }}" id='img_treat' alt="product image" style="display: block" />
-        </a>
+        </a> -->
+        <div class="tableDiv">
+        <table class="data-table">
+            <tr>
+                <th>Disease Detected</th>
+                <td>{{ app_data['disease_name'].replace('_', ' ').title() }}</td>
+            </tr>
+            <tr>
+                <th>Treatment</th>
+                <td>
+                    {% if "healthy" in app_data['disease_name'] %}
+                        No Treatment Required
+                    {% else %}
+                        {{ app_data['supplement name'] }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% if "healthy" not in app_data['disease_name'] %}
+            <tr>
+                <th>Supplement</th>
+                <td>
+                    <a href="{{ app_data['buy link'] }}">
+                        <img src="{{ app_data['supplement image'] }}" id='img_treat' alt="product image" style="display: block; max-width: 150px;" />
+                    </a>
+                </td>
+            </tr>
+            {% endif %}
+        </table>
+    </div>
+        
         {% endif %}
     </div>
 </div>
